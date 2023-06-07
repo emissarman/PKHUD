@@ -48,8 +48,11 @@ internal class ContainerView: UIView {
     internal func showFrameView() {
         layer.removeAllAnimations()
         frameView.center = calculateHudCenter()
-        frameView.alpha = 1.0
+        frameView.alpha = 0.0
         isHidden = false
+        UIView.animate(withDuration: 0.3) {
+            frameView.alpha = 1.0
+        }
     }
 
     fileprivate var willHide = false
@@ -70,7 +73,7 @@ internal class ContainerView: UIView {
         willHide = true
 
         if anim {
-            UIView.animate(withDuration: 0.8, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 self.frameView.alpha = 0.0
                 self.hideBackground(animated: false)
             }, completion: { _ in finalize(true) })
