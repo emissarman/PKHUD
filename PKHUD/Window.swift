@@ -51,7 +51,7 @@ internal class ContainerView: UIView {
         frameView.alpha = 0.0
         isHidden = false
         UIView.animate(withDuration: 0.3) {
-            frameView.alpha = 1.0
+            self.frameView.alpha = 1.0
         }
     }
 
